@@ -146,8 +146,8 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 OTP_SETTINGS = {
     "SEND_OTP_TO_EMAIL": True,
     "SEND_OTP_TO_PHONE": True,
-    "USER_PHONE_ATTR": "phone_number",
-    "USER_EMAIL_ATTR": "email",
+    "PHONE_NUMBER_STORAGE_FIELD_IN_THE_USER_MODEL": "phone_number",
+    "EMAIL_STORAGE_FIELD_IN_THE_USER_MODEL": "email",
     "JWT_Authentication": True
 }
 
