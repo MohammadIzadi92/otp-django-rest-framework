@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     # django rest framework
     'rest_framework',
     'rest_framework_simplejwt',
+    
+    # otp
+    "otp.apps.OtpConfig",
 
     # my app
     'accounts.apps.AccountsConfig',
@@ -137,4 +140,33 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 
 
 # ----- end new user model -----------------------------------------------------------------------------
+
+# ----- otp settings -----------------------------------------------------------------------------------
+
+OTP_SETTINGS = {
+    "SEND_OTP_TO_EMAIL": True,
+    "SEND_OTP_TO_PHONE": True,
+    "USER_PHONE_ATTR": "phone_number",
+    "USER_EMAIL_ATTR": "email",
+    "JWT_Authentication": True
+}
+
+
+# ----- end otp settings -------------------------------------------------------------------------------
+
+# ----- email settings ---------------------------------------------------------------------------------
+
+# email fake
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# send gmail
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config("EMAIL_HOST")
+EMAIL_USE_TLS = True
+EMAIL_PORT = config("EMAIL_PORT")
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+
+
+# ----- end email settings -----------------------------------------------------------------------------
 # ===== end my settings ================================================================================

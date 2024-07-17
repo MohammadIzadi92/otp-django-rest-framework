@@ -2,9 +2,10 @@ from django.contrib.auth.base_user import BaseUserManager
 
 
 class CustomUserManager(BaseUserManager):
-    def create_user(self, phone_number="", first_name="", **other_fields):
+    def create_user(self, phone_number="", first_name="", password="", **other_fields):
         user = self.model(phone_number=phone_number, first_name=first_name, **other_fields)
-        user.save()
+        user.set_password(password)
+        user.save(using=self._db)
         return user
 
     def create_superuser(self, **other_fields):
