@@ -4,6 +4,8 @@ Login and register via otp for Django Rest Framework by phone number and email.
 
 ## Adjustment steps
 
+If you intend to use the otp app, you must do the following steps. These steps include a few simple steps that make the app ready to use.
+
 ### 1 - Add the app to the installed apps in project settings
 
 ```python

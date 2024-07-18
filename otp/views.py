@@ -65,15 +65,15 @@ class VerifyOTPAPIView(APIView):
         if (
             OTP_SETTINGS.SEND_OTP_TO_PHONE and
             otp.channel == "Phone" and
-            OTP_SETTINGS.USER_PHONE_ATTR
+            OTP_SETTINGS.PHONE_NUMBER_STORAGE_FIELD_IN_THE_USER_MODEL
         ):
-            key = OTP_SETTINGS.USER_PHONE_ATTR
+            key = OTP_SETTINGS.PHONE_NUMBER_STORAGE_FIELD_IN_THE_USER_MODEL
         elif (
             OTP_SETTINGS.SEND_OTP_TO_EMAIL and
             otp.channel == "EMail" and
-            OTP_SETTINGS.USER_EMAIL_ATTR
+            OTP_SETTINGS.EMAIL_STORAGE_FIELD_IN_THE_USER_MODEL
         ):
-            key = OTP_SETTINGS.USER_EMAIL_ATTR
+            key = OTP_SETTINGS.EMAIL_STORAGE_FIELD_IN_THE_USER_MODEL
         else:
             key = OTP_SETTINGS.USER_DEFAULT_ATTR
         return key
